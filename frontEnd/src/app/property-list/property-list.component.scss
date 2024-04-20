@@ -1,0 +1,39 @@
+.wrapper {
+
+  
+    img {
+        aspect-ratio: 1;
+        border-radius: 15px;
+        border: rgb(225, 224, 224) solid 2px;
+        width: 344px;
+        height: 327px;
+    }
+  
+    .title {
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+  
+    .price-label {
+      font-weight: 300;
+      font-size: 1rem;
+    }
+  
+    .price {
+      font-weight: 500;
+      font-size: 1rem;
+    }
+  }
+  .bien-container {
+    background-color: #f0f0f0; /* Couleur de fond gris */
+    border-radius: 10px; /* Bordures arrondies */
+    cursor: pointer; /* Curseur de la souris en pointeur */
+    /* Effet de transition */
+    transition: transform 0.3s ease;
+    margin-bottom: 5px; /* Espacement entre chaque bien */
+  }
+  .bien-container:hover {
+    transform: scale(1.05); /* Zoom au survol */
+  }
+  
+  

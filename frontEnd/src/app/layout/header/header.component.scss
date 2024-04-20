@@ -1,0 +1,55 @@
+.main-header {
+  background-color: #f8f8f8;
+  padding: 5px;
+  text-align: center;
+}
+
+.logo-container {
+  position: relative;
+}
+
+.hero-image {
+  width: 100%; /* Ajustez la largeur au maximum disponible */
+  filter: blur(2px);
+  height: auto; /* Hauteur ajustée automatiquement pour conserver les proportions */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(150, 150, 150, 0.5); /* Gris semi-transparent pour le flou */
+  z-index: -1; /* Envoyer l'overlay en arrière-plan */
+}
+
+.logo-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #333;
+}
+
+.large-logo {
+  width: 70%; /* Ajustez la largeur du logo en pourcentage de la largeur de son conteneur */
+  height: auto; /* Hauteur ajustée automatiquement pour conserver les proportions */
+}
+
+.slogan {
+  font-weight: bold;
+  font-size: 36px;
+  margin-top: 20px; /* Espacement entre le logo et le slogan */
+}
+
+@media (max-width: 768px) {
+  .large-logo {
+      width: 50%; /* Ajustez la largeur du logo pour les petits écrans */
+  }
+
+  .slogan {
+      font-size: 18px; /* Ajustez la taille du slogan pour les petits écrans */
+  }
+}

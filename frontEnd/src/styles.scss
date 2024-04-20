@@ -1,0 +1,222 @@
+// /* Variables de couleur */
+// $couleur-or-rose: #B76E79;
+// $couleur-bleu-ciel: #7E75F8;
+// $couleur-vert-menthe: #7FFFD4;
+
+// /* Styles pour les boutons */
+// .button {
+//     padding: 10px 20px;
+//     border: none;
+//     border-radius: 5px;
+//     cursor: pointer;
+//     font-size: 16px;
+//     transition: background-color 0.3s ease;
+
+//     &.rose {
+//         background-color: $couleur-or-rose;
+//         color: white;
+
+//         &:hover {
+//             background-color: darken($couleur-or-rose, 10%);
+//         }
+//     }
+
+//     &.bleu {
+//         background-color: $couleur-bleu-ciel;
+//         color: white;
+
+//         &:hover {
+//             background-color: darken($couleur-bleu-ciel, 10%);
+//         }
+//     }
+
+//     &.menthe {
+//         background-color: $couleur-vert-menthe;
+//         color: white;
+
+//         &:hover {
+//             background-color: darken($couleur-vert-menthe, 10%);
+//         }
+//     }
+// }
+
+// /* Styles pour les champs de saisie */
+// .input {
+//     padding: 10px;
+//     border: 1px solid #ccc;
+//     border-radius: 5px;
+//     font-size: 16px;
+// }
+
+// /* Styles pour les liens */
+// .link {
+//     color: $couleur-bleu-ciel;
+
+//     &:hover {
+//         color: darken($couleur-bleu-ciel, 10%);
+//     }
+// }
+
+// /* Styles pour le header */
+// .header {
+//     background-color: #B76E79;
+//     color: white;
+//     padding: 20px;
+// }
+
+// .logo {
+//     font-size: 24px;
+//     font-weight: bold;
+// }
+
+// .nav ul {
+//     list-style-type: none;
+//     margin: 0;
+//     padding: 0;
+// }
+
+// .nav li {
+//     display: inline;
+//     margin-right: 20px;
+// }
+
+// .nav a {
+//     color: white;
+//     text-decoration: none;
+// }
+
+// /* Styles pour le footer */
+// .footer {
+//     background-color: #7E75F8;
+//     color: white;
+//     padding: 20px;
+// }
+
+// .footer-content {
+//     display: flex;
+//     justify-content: space-between;
+// }
+
+// .footer-section {
+//     flex: 1;
+// }
+
+// .footer-section h3 {
+//     margin-bottom: 10px;
+// }
+
+// .footer-section ul {
+//     list-style-type: none;
+//     padding: 0;
+// }
+
+// .footer-section ul li {
+//     margin-bottom: 5px;
+// }
+
+// .footer-bottom {
+//     text-align: center;
+//     margin-top: 20px;
+// }
+@import './styles/variables.scss';
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+// @import "~@fortawesome/fontawesome-free/scss/fontawesome";
+// @import "~@fortawesome/fontawesome-free/scss/solid";
+// @import "~@fortawesome/fontawesome-free/scss/regular"; 
+// @import "~@fortawesome/fontawesome-free/scss/brands";
+
+body,p,h1,h2,h3,h4{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,html,app-root{
+height: 100%;
+}
+
+app-root{
+   display: flex; 
+   flex-direction: column;
+}
+.row{
+    display: flex; 
+   flex-direction: row;
+}
+.column{
+    display: flex; 
+   flex-direction: column;
+}
+.mt-15{
+   margin-top: 15px; 
+}
+
+.mt-25{
+    margin-top: 25px; 
+ }
+
+.mb-15{
+    margin-bottom: 15px; 
+ }
+ .mb-25{
+    margin-bottom: 25px; 
+ }
+.wrap{
+    flex-wrap: wrap;
+}
+
+.gap-1{
+    gap: 1rem;
+}
+.gap-2{
+    gap: 2rem;
+}
+.gap-05{
+    gap: 0.5rem;
+}
+.space-between{
+    justify-items: center;
+}
+.align-center{
+    align-items: center;
+}
+.justify-center{
+    justify-content: center;
+}
+.full-center{
+  align-items: center; 
+  justify-content: center; 
+}
+.hidden{
+    display: none;
+}
+/* Styles pour le wrapper */
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+/* Styles pour la colonne de gauche (formulaire) */
+.left-column {
+    flex: 0 0 20%; /* Largeur modérée */
+    margin-right: 20px; /* Espace entre les colonnes */
+}
+
+/* Styles pour la colonne de droite (liste des biens) */
+.right-column {
+    flex: 1; /* La colonne de droite occupe tout l'espace restant */
+}
+
+/* Styles pour la liste des biens */
+.property-list-container {
+    margin-left: 20px;
+    padding: 12px;
+}
+
+/* Styles pour la pagination */
+.pagination-container {
+    margin-top: 20px;
+}

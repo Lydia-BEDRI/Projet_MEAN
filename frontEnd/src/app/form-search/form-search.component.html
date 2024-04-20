@@ -1,0 +1,48 @@
+<div class="form-container">
+  <form (ngSubmit)="onSearch()" class="p-fluid">
+    <!-- Champ Date de début de location -->
+    <div class="p-field">
+      <label for="dateDebutLocation">Date de début de location</label>
+      <input type="date" id="dateDebutLocation" [(ngModel)]="criteria.dateDebutLocation" class="p-inputtext">
+    </div>
+
+    <!-- Champ Date de fin de location -->
+    <div class="p-field">
+      <label for="dateFinLocation">Date de fin de location</label>
+      <input type="date" id="dateFinLocation" [(ngModel)]="criteria.dateFinLocation" class="p-inputtext">
+    </div>
+
+    <!-- Champ Commune -->
+    <div class="p-field">
+      <label for="commune">Commune</label>
+      <input type="text" id="commune" [(ngModel)]="criteria.commune" class="p-inputtext">
+    </div>
+
+    <!-- Champ Prix maximum -->
+    <div class="p-field">
+      <label for="prixMax">Prix maximum</label>
+      <input type="number" id="prixMax" [(ngModel)]="criteria.prixMax" class="p-inputtext">
+    </div>
+
+    <!-- Champ Nombre de chambres minimum -->
+    <div class="p-field">
+      <label for="nbChambresMin">Nombre de chambres minimum</label>
+      <input type="number" id="nbChambresMin" [(ngModel)]="criteria.nbChambresMin" class="p-inputtext">
+    </div>
+
+    <!-- Champ Nombre de couchages minimum -->
+    <div class="p-field">
+      <label for="nbCouchagesMin">Nombre de couchages minimum</label>
+      <input type="number" id="nbCouchagesMin" [(ngModel)]="criteria.nbCouchagesMin" class="p-inputtext">
+    </div>
+
+    <!-- Champ Distance maximale au centre-ville -->
+    <div class="p-field">
+      <label for="distanceMaxCentreVille">Distance maximale au centre-ville (en mètres)</label>
+      <input type="number" id="distanceMaxCentreVille" [(ngModel)]="criteria.distanceMaxCentreVille" class="p-inputtext">
+    </div>
+
+    <!-- Bouton de recherche -->
+    <button type="submit" class="p-button p-button-raised p-button-primary">Rechercher</button>
+  </form>
+</div>

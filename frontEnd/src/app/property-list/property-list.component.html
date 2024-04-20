@@ -1,0 +1,19 @@
+<div class="bien-container" (click)="onBienClicked(bien)">
+    <div class="column gap-1 wrapper">
+        <a [routerLink]="['/properties', bien.idBien]">
+        <img [src]="bien.image" [style.width.px]="344" [style.height.px]="327" alt="image d'un bien immobilier">    
+        <h2 class="title">{{bien.commune}}, {{bien.cp}}</h2>
+        <div class="row gap-05">
+            <span class="price-label">
+                    Prix:
+            </span>
+            <span class="price">{{bien.prix}} €</span> <span>par nuit</span>
+        </div>
+        <p-rating 
+        [(ngModel)]=bien_ratting
+        [readonly]="true"
+        iconCancelClass="hidden"
+        ></p-rating>
+    </a>
+    </div> 
+</div>

@@ -1,0 +1,29 @@
+<!-- header -->
+<app-header></app-header>
+
+<!-- Wrapper -->
+<div class="wrapper">
+    <!-- Formulaire de recherche à gauche -->
+    <div class="left-column">
+        <app-form-search></app-form-search>
+    </div>
+
+    <!-- Liste des Biens à droite -->
+    <div class="right-column">
+        <div class="property-list-container">
+            <div class="row wrap gap-1 space-between">
+                <app-property-list *ngFor="let bien of biens" [bien]="bien"></app-property-list>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination-container">
+                <p-paginator [rows]="rows" [totalRecords]="totalRecords" [rowsPerPageOptions]="[2, 4, 6, 8]"
+                    (onPageChange)="OnPageChange($event)"></p-paginator>
+            </div>
+        </div>
+    </div>
+</div>
+<app-property-detail></app-property-detail>
+<app-connexion></app-connexion>
+<!-- Footer -->
+<app-footer></app-footer>
