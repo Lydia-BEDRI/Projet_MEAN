@@ -1,0 +1,5 @@
+[ 
+  { "idLocation": 1, "idBien": 1, "mailLoueur": "jane.smith@example.com", "dateDébut": 20240401, "dateFin": 20240410, "avis": "Bon séjour !" },
+  { "idLocation": 2, "idBien": 3, "mailLoueur": "bob.williams@example.com", "dateDébut": 20240415, "dateFin": 20240425, "avis": "Excellent emplacement." } 
+]
+

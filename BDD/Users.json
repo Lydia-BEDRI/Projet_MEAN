@@ -1,0 +1,8 @@
+[
+  { "mail": "john.doe@example.com", "prenom": "John", "nom": "Doe", "telephone": "1234567890" },
+  { "mail": "jane.smith@example.com", "prenom": "Jane", "nom": "Smith", "telephone": "0987654321" },
+  { "mail": "alice.johnson@example.com", "prenom": "Alice", "nom": "Johnson", "telephone": "9876543210" },
+  { "mail": "bob.williams@example.com", "prenom": "Bob", "nom": "Williams", "telephone": "8765432109" },
+  { "mail": "emily.brown@example.com", "prenom": "Emily", "nom": "Brown", "telephone": "7654321098" }
+]
+
