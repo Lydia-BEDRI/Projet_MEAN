@@ -22,17 +22,6 @@
 },
 {
   "_id": {
-    "$oid": "66325e40875bbcda9d4239c0"
-  },
-  "idLocation": 3,
-  "idBien": 1,
-  "mailLoueur": "jane.smith@example.com",
-  "dateDebutLocation": 20240401,
-  "dateFinLocation": 20240410,
-  "avis": 3.5
-},
-{
-  "_id": {
     "$oid": "66325e40875bbcda9d4239c1"
   },
   "idLocation": 4,
@@ -62,18 +51,7 @@
   "mailLoueur": "john.doe@example.com",
   "idBien": 13,
   "idLocation": 6,
-  "avis": 0
-},
-{
-  "_id": {
-    "$oid": "6638783274887f7817f9b639"
-  },
-  "dateDebutLocation": 20240507,
-  "dateFinLocation": 20240510,
-  "mailLoueur": "john.doe@example.com",
-  "idBien": 13,
-  "idLocation": 7,
-  "avis": 0
+  "avis": "4.2"
 },
 {
   "_id": {
@@ -84,29 +62,7 @@
   "mailLoueur": "john.doe@example.com",
   "idBien": 13,
   "idLocation": 8,
-  "avis": 0
-},
-{
-  "_id": {
-    "$oid": "6638787074887f7817f9b63b"
-  },
-  "dateDebutLocation": 20240610,
-  "dateFinLocation": 20240620,
-  "mailLoueur": "john.doe@example.com",
-  "idBien": 13,
-  "idLocation": 9,
-  "avis": 0
-},
-{
-  "_id": {
-    "$oid": "66387aaead92c8ae15a4be6f"
-  },
-  "dateDebutLocation": 20240507,
-  "dateFinLocation": 20240510,
-  "mailLoueur": "john.doe@example.com",
-  "idBien": 13,
-  "idLocation": 11,
-  "avis": 0
+  "avis": "4.2"
 },
 {
   "_id": {
@@ -117,5 +73,16 @@
   "mailLoueur": "john.doe@example.com",
   "idBien": 13,
   "idLocation": 12,
-  "avis": 0
+  "avis": "4"
+},
+{
+  "_id": {
+    "$oid": "66393f83fbfcb3b916f2c61d"
+  },
+  "dateDebutLocation": 20240706,
+  "dateFinLocation": 20240730,
+  "mailLoueur": "john.doe@example.com",
+  "idBien": 13,
+  "idLocation": 13,
+  "avis": "3.5"
 }]
