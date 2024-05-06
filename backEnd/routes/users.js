@@ -1,6 +1,8 @@
 // users.js
 const express = require('express');
+const bcrypt = require("bcrypt")
 const router = express.Router();
+const jwt = require('jsonwebtoken');
 
 // GET all users
 router.get("/", async (req, res) => {
@@ -10,7 +12,7 @@ router.get("/", async (req, res) => {
         res.json(users);
     } catch (error) {
         console.error("Error fetching users:", error);
-        res.status(500).json({ error: "Internal server error" });
+        res.status(500).json({error: "Internal server error"});
     }
 });
 
@@ -19,29 +21,29 @@ router.get("/:email", async (req, res) => {
     const db = req.app.locals.db;
     const userEmail = req.params.email;
     try {
-        const user = await db.collection("Utilisateurs").findOne({ mail: userEmail });
+        const user = await db.collection("Utilisateurs").findOne({mail: userEmail});
         if (!user) {
-            res.status(404).json({ error: "User not found" });
+            res.status(404).json({error: "User not found"});
             return;
         }
         res.json(user);
     } catch (error) {
         console.error("Error fetching user:", error);
-        res.status(500).json({ error: "Internal server error" });
+        res.status(500).json({error: "Internal server error"});
     }
 });
 
 // POST new user
 router.post("/", async (req, res) => {
-  const db = req.app.locals.db;
-  const newUser = req.body;
-  try {
-      const result = await db.collection("Utilisateurs").insertOne(newUser);
-      res.json(newUser); // Return the newly created user directly
-  } catch (error) {
-      console.error("Error creating new user:", error);
-      res.status(500).json({ error: "Internal server error" });
-  }
+    const db = req.app.locals.db;
+    const newUser = req.body;
+    try {
+        const result = await db.collection("Utilisateurs").insertOne(newUser);
+        res.json(newUser); // Return the newly created user directly
+    } catch (error) {
+        console.error("Error creating new user:", error);
+        res.status(500).json({error: "Internal server error"});
+    }
 });
 
 
@@ -51,11 +53,11 @@ router.put("/:email", async (req, res) => {
     const userEmail = req.params.email;
     const updatedUser = req.body;
     try {
-        const result = await db.collection("Utilisateurs").replaceOne({ mail: userEmail }, updatedUser);
+        const result = await db.collection("Utilisateurs").replaceOne({mail: userEmail}, updatedUser);
         res.json(result);
     } catch (error) {
         console.error("Error updating user:", error);
-        res.status(500).json({ error: "Internal server error" });
+        res.status(500).json({error: "Internal server error"});
     }
 });
 
@@ -64,29 +66,43 @@ router.delete("/:email", async (req, res) => {
     const db = req.app.locals.db;
     const userEmail = req.params.email;
     try {
-        const result = await db.collection("Utilisateurs").deleteOne({ mail: userEmail });
+        const result = await db.collection("Utilisateurs").deleteOne({mail: userEmail});
         res.json(result);
     } catch (error) {
         console.error("Error deleting user:", error);
-        res.status(500).json({ error: "Internal server error" });
+        res.status(500).json({error: "Internal server error"});
     }
 });
 
 router.post("/login", async (req, res) => {
+
+    // console.log(await bcrypt.hash("12345", 10));
+
+
     const db = req.app.locals.db;
-    const { email, password } = req.body;
+    const {email, password} = req.body;
 
     try {
-        const user = await db.collection("Utilisateurs").findOne({ mail: email, password: password });
+
+        const user = await db.collection("Utilisateurs").findOne({mail: email});
         if (!user) {
-            return res.status(401).json({ error: "Email ou mot de passe incorrect" });
+            return res.status(401).json({error: "Email ou mot de passe incorrect"});
         }
 
-        // Si l'utilisateur est authentifié avec succès, renvoyer un message de succès
-        res.json({ success: "Connexion réussie" });
+        const passwordMatch = await bcrypt.compare(password, user.password);
+
+        if (!passwordMatch) {
+            return res.status(401).json({error: 'Authentication failed'});
+        }
+
+        const token = jwt.sign({mail: user.mail, prenom: user.prenom, nom: user.nom}, 'lylocbnb', {
+            expiresIn: '1h',
+        });
+        res.status(200).json({token});
+
     } catch (error) {
         console.error("Error during login:", error);
-        res.status(500).json({ error: "Internal server error" });
+        res.status(500).json({error: "Internal server error"});
     }
 });
 

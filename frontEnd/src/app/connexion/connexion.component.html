@@ -1,9 +1,40 @@
-<form (ngSubmit)="onSubmit()" #inscriptionForm="ngForm">
-    <label> Email </label>
-    <input type="text" class="form-control" required [(ngModel)]="user['email']" name="email" />
-
-    <label> Mot de passe </label>
-    <input type="password" class="form-control" required [(ngModel)]="user['pass']" name="password" />
-
-    <input type="submit" value="Se connecter"/>
-  </form>
+<div id="slideBox">
+    <div class="topLayer">
+        <div class="right">
+            <div class="content">
+                <h2>Login</h2>
+                <form id="form-login" method="post" [formGroup]="loginFormGroup">
+                    <div formGroupName="login">
+                        <div class="form-element form-stack">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input id="email" type="text" formControlName="email" name="email" autocomplete="off"/>
+                            <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+                                <div *ngIf="email?.errors?.['required'] || email?.errors?.['notOnlyWhiteSpace']" class="error" style="color: crimson">
+                                    email is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-element form-stack">
+                            <label for="password" class="form-label">Password</label>
+                            <input id="password" type="password" name="password" formControlName="password"/>
+                            <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+                                <div *ngIf="password?.errors?.['required'] || password?.errors?.['notOnlyWhiteSpace']"
+                                     style="color: crimson" class="error">
+                                    password is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-element form-submit">
+                        <button class="login" type="submit" name="login" (click)="onSubmit()">
+                            Log In
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="back">
+    <div class="backLeft"></div>
+</div>

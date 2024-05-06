@@ -1,19 +1,68 @@
-<div class="bien-container" (click)="onBienClicked(bien)">
-    <div class="column gap-1 wrapper">
-        <a [routerLink]="['/properties', bien.idBien]">
-        <img [src]="bien.image" [style.width.px]="344" [style.height.px]="327" alt="image d'un bien immobilier">    
-        <h2 class="title">{{bien.commune}}, {{bien.cp}}</h2>
-        <div class="row gap-05">
-            <span class="price-label">
-                    Prix:
-            </span>
-            <span class="price">{{bien.prix}} €</span> <span>par nuit</span>
+<div class="property-list-container">
+    <div class=" wrap gap-1 space-between" style="display: flex;
+    justify-content: space-around;" *ngIf="biens.length;else skeleton">
+
+        <div class="bien-container" *ngFor="let bien of biens" routerLink="/home/properties/{{bien.idBien}}">
+            <section class="hotel-card">
+                <img class="hotel-image" [src]="bien.image" alt=""/>
+                <h2 class="hotel-title">{{ bien.rue }},{{ bien.commune }}</h2>
+                <p class="hotel-description">
+                    {{ bien.nbChambres }}<span *ngIf="bien.nbChambres===1;else elseBlock"> Chambre</span>
+                    <ng-template #elseBlock> Chambres</ng-template>
+                </p>
+                <div class="hotel-book">
+                    <span class="hotel-price">{{ bien.prix | currency:'EUR' }} <span style="font-weight: normal">par nuit</span></span>
+                    <p-rating [(ngModel)]="bien.averageAvis" [readonly]="true" [cancel]="false"/>
+                </div>
+            </section>
         </div>
-        <p-rating 
-        [(ngModel)]=bien_ratting
-        [readonly]="true"
-        iconCancelClass="hidden"
-        ></p-rating>
-    </a>
-    </div> 
+    </div>
+    <p-paginator (onPageChange)="onPageChange($event)" [rows]="rows" [totalRecords]="totalRecords"
+                 [rowsPerPageOptions]="rowsPerPage"></p-paginator>
+    <ng-template #skeleton>
+        <div style="    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;justify-items: center">
+            <div *ngFor="let item of items" style="margin-top: 40px">
+                <ngx-skeleton-loader
+                        count="1"
+                        animation="progress"
+                        [theme]="{
+                    height: '344px',
+                    width: '327px',
+                    'border-radius':'15px'
+
+                }"
+                ></ngx-skeleton-loader>
+                <ngx-skeleton-loader
+                        count="1"
+                        animation="progress"
+                        [theme]="{
+                    width: '50%',
+                    'display':'block'
+                }"
+                ></ngx-skeleton-loader>
+                <ngx-skeleton-loader
+                        count="1"
+                        animation="progress"
+                        [theme]="{
+                    width: '20%',
+                    'display':'block'
+                }"
+                ></ngx-skeleton-loader>
+                <div>
+                    <ngx-skeleton-loader
+                            count="1"
+                            animation="progress"
+                            [theme]="{
+                    width: '30%',
+
+                }"
+                    ></ngx-skeleton-loader>
+
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+
 </div>

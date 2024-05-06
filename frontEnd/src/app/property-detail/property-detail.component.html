@@ -1,9 +1,58 @@
-<div *ngIf="bien" class="property-details">
-    <h2>{{ bien.commune }}, {{ bien.cp }}</h2>
-    <p>Nombre de Couchages: {{ bien.nbCouchages }}</p>
-    <p>Nombre de Chambres: {{ bien.nbChambres }}</p>
-    <p>Distance au Centre-ville: {{ bien.distance }} mètres</p>
-    <p>Prix par Nuit: {{ bien.prix }} €</p>
-    <!-- Autres détails du bien -->
-  </div>
-  
+<div class="property-container">
+    <div class="property-image">
+        <img [src]="bien.image" alt="property">
+    </div>
+
+    <div class="property-info">
+        <h4>Location</h4>
+        <p>{{ bien.rue }},{{ bien.commune }}</p>
+        <h4>Nombre de Couchages</h4>
+        <p>{{ bien.nbCouchages }}</p>
+        <h4>Nombre de Chambres</h4>
+        <p>{{ bien.nbChambres }}</p>
+        <h4>Distance au Centre-ville</h4>
+        <p>{{ bien.distance }} mètres</p>
+        <h4>Prix</h4>
+        <p>{{ bien.prix | currency:'EUR' }}</p>
+        <button routerLink="/login" (click)="persistProperty(bien)">Réserver</button>
+    </div>
+    <div>
+        <div style="    display: flex;
+    justify-content: space-between;">
+
+            <h3 style="margin-top: 50px">Ce que propose ce logement</h3>
+            <h3 style="margin-top: 50px">Où se situe le logement</h3>
+        </div>
+        <div style="display: flex;justify-content: space-between;column-gap: 15%">
+            <div class="amenities"
+                 style="   min-width: 50%; height:calc(100vh - 500px);margin:40px 0px 40px 40px;display: grid;grid-template-columns: 1fr 4fr;">
+                <span style="width: 25px;height: auto">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path
+                        d="M54.2 202.9C123.2 136.7 216.8 96 320 96s196.8 40.7 265.8 106.9c12.8 12.2 33 11.8 45.2-.9s11.8-33-.9-45.2C549.7 79.5 440.4 32 320 32S90.3 79.5 9.8 156.7C-2.9 169-3.3 189.2 8.9 202s32.5 13.2 45.2 .9zM320 256c56.8 0 108.6 21.1 148.2 56c13.3 11.7 33.5 10.4 45.2-2.8s10.4-33.5-2.8-45.2C459.8 219.2 393 192 320 192s-139.8 27.2-190.5 72c-13.3 11.7-14.5 31.9-2.8 45.2s31.9 14.5 45.2 2.8c39.5-34.9 91.3-56 148.2-56zm64 160a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z"/></svg>
+                </span>
+                <p style="margin-top: 3px;">Wifi</p>
+                <span style="width: 25px;height: auto">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path
+                        d="M64 64V352H576V64H64zM0 64C0 28.7 28.7 0 64 0H576c35.3 0 64 28.7 64 64V352c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zM128 448H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H128c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg>
+                </span>
+                <p style="    margin-top: 3px;">Télévision</p>
+                <span style="width: 25px;height: auto">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path
+                        d="M224 0c13.3 0 24 10.7 24 24V70.1l23-23c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-57 57v76.5l66.2-38.2 20.9-77.8c3.4-12.8 16.6-20.4 29.4-17s20.4 16.6 17 29.4L373 142.2l37.1-21.4c11.5-6.6 26.2-2.7 32.8 8.8s2.7 26.2-8.8 32.8L397 183.8l31.5 8.4c12.8 3.4 20.4 16.6 17 29.4s-16.6 20.4-29.4 17l-77.8-20.9L272 256l66.2 38.2 77.8-20.9c12.8-3.4 26 4.2 29.4 17s-4.2 26-17 29.4L397 328.2l37.1 21.4c11.5 6.6 15.4 21.3 8.8 32.8s-21.3 15.4-32.8 8.8L373 369.8l8.4 31.5c3.4 12.8-4.2 26-17 29.4s-26-4.2-29.4-17l-20.9-77.8L248 297.6v76.5l57 57c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-23-23V488c0 13.3-10.7 24-24 24s-24-10.7-24-24V441.9l-23 23c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l57-57V297.6l-66.2 38.2-20.9 77.8c-3.4 12.8-16.6 20.4-29.4 17s-20.4-16.6-17-29.4L75 369.8 37.9 391.2c-11.5 6.6-26.2 2.7-32.8-8.8s-2.7-26.2 8.8-32.8L51 328.2l-31.5-8.4c-12.8-3.4-20.4-16.6-17-29.4s16.6-20.4 29.4-17l77.8 20.9L176 256l-66.2-38.2L31.9 238.6c-12.8 3.4-26-4.2-29.4-17s4.2-26 17-29.4L51 183.8 13.9 162.4c-11.5-6.6-15.4-21.3-8.8-32.8s21.3-15.4 32.8-8.8L75 142.2l-8.4-31.5c-3.4-12.8 4.2-26 17-29.4s26 4.2 29.4 17l20.9 77.8L200 214.4V137.9L143 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l23 23V24c0-13.3 10.7-24 24-24z"/></svg>
+                </span>
+                <p style="    margin-top: 3px;">Climatisation centrale</p>
+                <span>
+                <i class="pi pi-car" style="font-size: 26px"></i>
+                </span>
+                <p style="    margin-top: 3px;">Parking gratuit sur place</p>
+
+<!--            </div>-->
+            <div class="my-google-map" style="margin-top: 38px;margin-left:60px">
+<!--                <google-map [options]="mapOptions" [height]="300" [width]="500" >-->
+<!--                    <map-marker [position]="marker.position"></map-marker>-->
+<!--                </google-map>-->
+            </div>
+        </div>
+
+    </div>
+</div>

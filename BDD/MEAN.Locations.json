@@ -1,0 +1,121 @@
+[{
+  "_id": {
+    "$oid": "66323298875bbcda9d4239bc"
+  },
+  "idLocation": 1,
+  "idBien": 1,
+  "mailLoueur": "jane.smith@example.com",
+  "dateDebutLocation": 20240401,
+  "dateFinLocation": 20240410,
+  "avis": 4
+},
+{
+  "_id": {
+    "$oid": "66323298875bbcda9d4239bd"
+  },
+  "idLocation": 2,
+  "idBien": 3,
+  "mailLoueur": "bob.williams@example.com",
+  "dateDebutLocation": 20240415,
+  "dateFinLocation": 20240425,
+  "avis": 3
+},
+{
+  "_id": {
+    "$oid": "66325e40875bbcda9d4239c0"
+  },
+  "idLocation": 3,
+  "idBien": 1,
+  "mailLoueur": "jane.smith@example.com",
+  "dateDebutLocation": 20240401,
+  "dateFinLocation": 20240410,
+  "avis": 3.5
+},
+{
+  "_id": {
+    "$oid": "66325e40875bbcda9d4239c1"
+  },
+  "idLocation": 4,
+  "idBien": 3,
+  "mailLoueur": "bob.williams@example.com",
+  "dateDebutLocation": 20240415,
+  "dateFinLocation": 20240425,
+  "avis": 4.1
+},
+{
+  "_id": {
+    "$oid": "66325e40875bbcda9d4239c2"
+  },
+  "idLocation": 5,
+  "idBien": 1,
+  "mailLoueur": "jane.smith@example.com",
+  "dateDebutLocation": 20240501,
+  "dateFinLocation": 20240510,
+  "avis": 5
+},
+{
+  "_id": {
+    "$oid": "6638661449f6f6c54c40ed73"
+  },
+  "dateDebutLocation": 20240521,
+  "dateFinLocation": 20240523,
+  "mailLoueur": "john.doe@example.com",
+  "idBien": 13,
+  "idLocation": 6,
+  "avis": 0
+},
+{
+  "_id": {
+    "$oid": "6638783274887f7817f9b639"
+  },
+  "dateDebutLocation": 20240507,
+  "dateFinLocation": 20240510,
+  "mailLoueur": "john.doe@example.com",
+  "idBien": 13,
+  "idLocation": 7,
+  "avis": 0
+},
+{
+  "_id": {
+    "$oid": "6638784674887f7817f9b63a"
+  },
+  "dateDebutLocation": 20240507,
+  "dateFinLocation": 20240510,
+  "mailLoueur": "john.doe@example.com",
+  "idBien": 13,
+  "idLocation": 8,
+  "avis": 0
+},
+{
+  "_id": {
+    "$oid": "6638787074887f7817f9b63b"
+  },
+  "dateDebutLocation": 20240610,
+  "dateFinLocation": 20240620,
+  "mailLoueur": "john.doe@example.com",
+  "idBien": 13,
+  "idLocation": 9,
+  "avis": 0
+},
+{
+  "_id": {
+    "$oid": "66387aaead92c8ae15a4be6f"
+  },
+  "dateDebutLocation": 20240507,
+  "dateFinLocation": 20240510,
+  "mailLoueur": "john.doe@example.com",
+  "idBien": 13,
+  "idLocation": 11,
+  "avis": 0
+},
+{
+  "_id": {
+    "$oid": "66387aaead92c8ae15a4be71"
+  },
+  "dateDebutLocation": 20240610,
+  "dateFinLocation": 20240620,
+  "mailLoueur": "john.doe@example.com",
+  "idBien": 13,
+  "idLocation": 12,
+  "avis": 0
+}]

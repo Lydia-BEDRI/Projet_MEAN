@@ -1,0 +1,75 @@
+@if (bien) {
+    <div class="grid grid-cols-2 gap-4">
+        <div class="flex items-center justify-center  h-28 mt-40">
+
+
+            <div class="w-full max-w-sm bg-white ">
+                <div class="bg-indigo-300 rounded-lg ">
+                    <img class="rounded-lg object-cover  mb-10 mt-20" [src]="bien.image" alt="bien image"/>
+                </div>
+
+                <div class="px-5 pb-5">
+                    <a>
+                        <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ bien.rue }}
+                            ,{{ bien.commune }}</h5>
+                    </a>
+                    <div class="flex items-center mt-2.5 mb-5">
+                        <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                            <p-rating [(ngModel)]="bien.averageAvis" [readonly]="true" [cancel]="false"/>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">{{ bien.averageAvis | number:'1.2-2' }}</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-3xl font-bold text-gray-900 dark:text-white">{{ bien.prix | currency:'EUR' }}</span>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="flex items-center justify-center  h-28 mt-40 ">
+
+            <form class="max-w-md mx-auto">
+                <div class="relative z-0 w-full mb-5 group">
+                    <input type="date"
+                           class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                           required id="dateDebutLocation" [(ngModel)]="reservation.dateDebutLocation"
+                           name="dateDebutLocation"/>
+                    <label for="dateDebutLocation"
+                           class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Date
+                        de début de location </label>
+
+                </div>
+                <div class="relative z-0 w-full mb-5 group">
+                    <input type="date" id="floating_date_debut"
+                           class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                           placeholder=" " required id="dateFinLocation" name="dateFinLocation"
+                           [(ngModel)]="reservation.dateFinLocation"/>
+                    <label for="floating_date_debut"
+                           class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Date
+                        de début de location </label>
+                </div>
+                <div class="invisible bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
+                    <p class="font-bold">Be Warned</p>
+                    <p>Something not ideal might be happening.</p>
+                </div>
+                <button type="submit" (click)="book()"
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Submit
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+} @else {
+    <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
+        <p class="font-bold">No selected properties</p>
+    </div>
+    <button routerLink="/home"
+            class="mt-10 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+        Book one !
+    </button>
+}

@@ -118,105 +118,124 @@
 //     text-align: center;
 //     margin-top: 20px;
 // }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import './styles/variables.scss';
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 // @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 // @import "~@fortawesome/fontawesome-free/scss/solid";
-// @import "~@fortawesome/fontawesome-free/scss/regular"; 
+// @import "~@fortawesome/fontawesome-free/scss/regular";
 // @import "~@fortawesome/fontawesome-free/scss/brands";
 
-body,p,h1,h2,h3,h4{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body, p, h1, h2, h3, h4 {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body,html,app-root{
-height: 100%;
+body, html, app-root {
+  height: 100%;
+
 }
 
-app-root{
-   display: flex; 
-   flex-direction: column;
-}
-.row{
-    display: flex; 
-   flex-direction: row;
-}
-.column{
-    display: flex; 
-   flex-direction: column;
-}
-.mt-15{
-   margin-top: 15px; 
+app-root {
+  display: flex;
+  flex-direction: column;
 }
 
-.mt-25{
-    margin-top: 25px; 
- }
-
-.mb-15{
-    margin-bottom: 15px; 
- }
- .mb-25{
-    margin-bottom: 25px; 
- }
-.wrap{
-    flex-wrap: wrap;
+.row {
+  display: flex;
+  flex-direction: row;
 }
 
-.gap-1{
-    gap: 1rem;
+.column {
+  display: flex;
+  flex-direction: column;
 }
-.gap-2{
-    gap: 2rem;
+
+.mt-15 {
+  margin-top: 15px;
 }
-.gap-05{
-    gap: 0.5rem;
+
+.mt-25 {
+  margin-top: 25px;
 }
-.space-between{
-    justify-items: center;
+
+.mb-15 {
+  margin-bottom: 15px;
 }
-.align-center{
-    align-items: center;
+
+.mb-25 {
+  margin-bottom: 25px;
 }
-.justify-center{
-    justify-content: center;
+
+.wrap {
+  flex-wrap: wrap;
 }
-.full-center{
-  align-items: center; 
-  justify-content: center; 
+
+.gap-1 {
+  gap: 1rem;
 }
-.hidden{
-    display: none;
+
+.gap-2 {
+  gap: 2rem;
 }
+
+.gap-05 {
+  gap: 0.5rem;
+}
+
+.space-between {
+  justify-items: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.full-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
 /* Styles pour le wrapper */
 .wrapper {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
 }
 
 /* Styles pour la colonne de gauche (formulaire) */
 .left-column {
-    flex: 0 0 20%; /* Largeur modérée */
-    margin-right: 20px; /* Espace entre les colonnes */
+  flex: 0 0 20%; /* Largeur modérée */
+  margin-right: 0px; /* Espace entre les colonnes */
 }
 
 /* Styles pour la colonne de droite (liste des biens) */
 .right-column {
-    flex: 1; /* La colonne de droite occupe tout l'espace restant */
+  flex: 1; /* La colonne de droite occupe tout l'espace restant */
 }
 
 /* Styles pour la liste des biens */
 .property-list-container {
-    margin-left: 20px;
-    padding: 12px;
+  margin-left: 20px;
+  padding: 12px;
 }
 
 /* Styles pour la pagination */
 .pagination-container {
-    margin-top: 20px;
+  margin-top: 20px;
 }
