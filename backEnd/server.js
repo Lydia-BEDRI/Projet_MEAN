@@ -1,51 +1,40 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-
-
-
-// Connexion à la base de données MongoDB
-mongoose.connect("mongodb://localhost:27017/MEAN", { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log("MongoDB connection succeeded.");
-  })
-  .catch((err) => {
-    console.log("Error in DB connection : " + JSON.stringify(err, undefined, 2));
-  });
-
-// Création du schéma pour la collection "Biens"
-const bienSchema = new mongoose.Schema({
-  idBien: { type: Number, required: true, unique: true },
-  commune: { type: String, required: true },
-  rue: { type: String, required: true },
-  cp: { type: String, required: true },
-  nbCouchages: { type: Number, required: true },
-  nbChambres: { type: Number, required: true },
-  distance: { type: Number, required: true },
-  prix: { type: Number, required: true },
-  mail: { type: String, required: true, unique: true }
-});
-
-// Création du modèle pour la collection "Biens"
-const Bien = mongoose.model('Biens', bienSchema);
+const express = require('express');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger-output.json');
+const MongoClient = require('mongodb').MongoClient;
+const url = "mongodb://127.0.0.1:27017";
 
 const app = express();
 
-// Middleware pour parser les requêtes JSON
-app.use(bodyParser.json());
 
-// Route pour récupérer tous les biens
-app.get("/biens", async (req, res) => {
-  try {
-    const biens = await db;
-    res.json(biens);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
 });
 
-// Port d'écoute du serveur
-const port = 3000;
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+//importe les different controller
+const userRoutes = require('./routes/users');
+const bienRoutes = require('./routes/biens');
+const locationRoutes = require('./routes/locations');
+
+app.use('/users', userRoutes);
+app.use('/biens', bienRoutes);
+app.use('/locations', locationRoutes);
+app.use('/',swaggerUi.serve,swaggerUi.setup(swaggerDocument))
+
+//Connection à MongoDB et démarrage du serveur
+const client = new MongoClient(url);
+
+client.connect()
+    .then(client => {
+        const db = client.db("MEAN");
+        app.locals.db = db;
+        app.listen(8888, () => console.log("Serveur démarré sur le port 8888"));
+    })
+    .catch(err => {
+        console.error("Erreur lors de la connexion à MongoDB:", err);
+    });
