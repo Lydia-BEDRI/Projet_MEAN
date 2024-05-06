@@ -103,3 +103,12 @@ Les tokens JWT sont utilisés pour sécuriser l'authentification et les sessions
 
 ### Géolocalisation des biens sur une carte : 
 Les biens à louer pourraient être affichés sur une carte interactive pour une meilleure visualisation et une navigation facilitée.
+
+## Instructions de Lancement
+
+Pour lancer l'application, suivez ces étapes :
+
+1. Assurez-vous que MongoDB est démarré en exécutant la commande `mongod`.
+2. Importez les données en exécutant le script `import_data.sh` pour pré-remplir la base de données avec des données d'exemple.
+3. Lancez le backend en exécutant `node server.js`.
+4. Lancez le frontend en exécutant `ng serve` pour démarrer le serveur de développement Angular.
